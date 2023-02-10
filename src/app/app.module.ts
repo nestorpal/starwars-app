@@ -14,14 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-const routes: Routes = [
-  { path: 'characters', component: TabsComponent, children: [
-    { path:'', redirectTo: 'all', pathMatch: 'full' },
-    { path: ':side', component: ListComponent }
-  ] },
-  { path: 'new-character', component: CreateCharacterComponent },
-  { path: '**', redirectTo: '/characters' }
-]
+
 
 @NgModule({
   declarations: [
@@ -36,8 +29,8 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [StarWarsService, LogService],
   bootstrap: [AppComponent]
